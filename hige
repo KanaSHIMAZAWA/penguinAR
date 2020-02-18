@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width,intial-scale=1">
+
+<title>WebAR</title>
+
+</head>
+
+<body style="margin:0px; overflow:hidden;">
+
+<!-- AFrameライブラリ読み込み -->
+
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+<!-- AR.jsライブラリ読み込み -->
+
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.1.5/aframe/build/aframe-ar.js"></script>
+
+<!-- AFrameにAR.js紐付け -->
+
+<a-scene embedded arjs="debugUIEnabled:false;trackingMethod:best;" vr-mode-ui="enabled: false">
+
+<!-- 3Dモデルの用意 -->
+
+<a-assets>
+
+<!-- 3Dモデル -->
+
+<a-asset-item id="3DModel" src="webAR/hige.obj"></a-asset-item>
+
+<!-- マテリアル -->
+
+<a-asset-item id="Material" src="webAR/hige.mtl"></a-asset-item>
+
+</a-assets>
+
+ <!-- マーカー登録(カスタマイズマーカー) -->
+<a-marker type='pattern' url='./Hige.patt'>
+
+<!-- マーカーの位置に3Dモデルを配置 サイズと場所を指定-->
+
+<a-obj-model src="#3DModel"
+
+mtl="#Material"
+
+scale="0.5 0.5 0.5"
+
+position="0 0.5 0">
+
+</a-obj-model>
+
+</a-marker>
+
+<!-- AR用のカメラ配置 -->
+ <a-entity camera></a-entity>
+
+<!-- A-Frame終了 -->
+
+</a-scene>
+
+</body>
+
+</html>
